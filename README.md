@@ -5,33 +5,33 @@ Allowes you to use Named Services with Microsoft Dependency Injection.
 To add a Named Service to DI one of the following ExtensionMethods an IServiceCollection can be used:
 
 ```csharp
-public static IServiceCollection AddNamed(this IServiceCollection serviceCollection, Type type, string name, ServiceLifetime serviceLifetime)
-public static IServiceCollection AddNamed(this IServiceCollection serviceCollection, Type type, string name, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime)
-public static IServiceCollection AddNamed<T>(this IServiceCollection serviceCollection, string name, ServiceLifetime serviceLifetime)
-public static IServiceCollection AddNamed<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime)
+AddNamed(this IServiceCollection serviceCollection, Type type, string name, ServiceLifetime serviceLifetime);
+AddNamed(this IServiceCollection serviceCollection, Type type, string name, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, string name, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime);
 
 
 /// Singleton
 
-public static IServiceCollection AddNamedSingleton(this IServiceCollection serviceCollection, string name, Type type)
-public static IServiceCollection AddNamedSingleton(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory)
-public static IServiceCollection AddNamedSingleton<T>(this IServiceCollection serviceCollection, string name) where T : class
-public static IServiceCollection AddNamedSingleton<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory) where T : class
+AddNamedSingleton(this IServiceCollection serviceCollection, string name, Type type);
+AddNamedSingleton(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory);
+AddNamedSingleton<T>(this IServiceCollection serviceCollection, string name);
+AddNamedSingleton<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory);
 
 
 /// Scoped
 
-public static IServiceCollection AddNamedScoped(this IServiceCollection serviceCollection, string name, Type type)
-public static IServiceCollection AddNamedScoped(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory)
-public static IServiceCollection AddNamedScoped<T>(this IServiceCollection serviceCollection, string name) where T : class
-public static IServiceCollection AddNamedScoped<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory) where T : class
+AddNamedScoped(this IServiceCollection serviceCollection, string name, Type type);
+AddNamedScoped(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory);
+AddNamedScoped<T>(this IServiceCollection serviceCollection, string name);
+AddNamedScoped<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory);
 
 
 /// Transient
 
-public static IServiceCollection AddNamedTransient(this IServiceCollection serviceCollection, string name, Type type)
-public static IServiceCollection AddNamedTransient(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory)
-public static IServiceCollection AddNamedTransient<T>(this IServiceCollection serviceCollection, string name) where T : class
-public static IServiceCollection AddNamedTransient<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory) where T : class
+AddNamedTransient(this IServiceCollection serviceCollection, string name, Type type);
+AddNamedTransient(this IServiceCollection serviceCollection, string name, Type type, Func<IServiceProvider, object> implementationFactory);
+AddNamedTransient<T>(this IServiceCollection serviceCollection, string name);
+AddNamedTransient<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory);
 
 ```
