@@ -35,3 +35,22 @@ AddNamedTransient<T>(this IServiceCollection serviceCollection, string name);
 AddNamedTransient<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory);
 
 ```
+
+  
+  
+To Resolve your injected Named Service you can use  `NamedServiceRèsolver`  
+`NamedServiceResolver` is injected automatically for you, so you use in in Constructor Injection.  
+
+```csharp
+[Route("api/test")]
+public class TestController: Controller
+{
+    public TestController(NamedTypeResolver namedTypeResolver)
+    {
+        var neededService1 = namedTypeResolver.GetNamedService<MyNeededService>("neddedService1");
+        var neededService2 = namedTypeResolver.GetNamedService<MyNeededService>("neddedService2");
+    }
+
+}
+
+```
