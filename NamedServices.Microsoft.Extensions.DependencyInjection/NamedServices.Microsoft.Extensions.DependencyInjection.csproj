@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>NamedServices</AssemblyName>
+    <Authors>Bernhard Windisch</Authors>
+    <Company>-</Company>
+    <Description>Microsoft.Extensions.DependencyInjection</Description>
+    <PackageTags>Dependency;Injection;DI</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/windischb/NamedServices.Microsoft.Extensions.DependencyInjection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/windischb/NamedServices.Microsoft.Extensions.DependencyInjection</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

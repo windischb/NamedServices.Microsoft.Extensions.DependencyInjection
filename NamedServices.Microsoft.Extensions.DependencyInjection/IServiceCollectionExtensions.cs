@@ -14,7 +14,6 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
             return AddNamed<T>(serviceCollection, key, ServiceLifetime.Singleton);
         }
 
-
         public static IServiceCollection AddNamedSingleton<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory) where T : class {
             return AddNamed<T>(serviceCollection, key, implementationFactory, ServiceLifetime.Singleton);
         }
@@ -30,7 +29,6 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
         public static IServiceCollection AddNamedSingleton<T>(this IServiceCollection serviceCollection, Enum key) where T : class {
             return AddNamed<T>(serviceCollection, key, ServiceLifetime.Singleton);
         }
-
 
         public static IServiceCollection AddNamedSingleton<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory) where T : class {
             return AddNamed<T>(serviceCollection, key, implementationFactory, ServiceLifetime.Singleton);
