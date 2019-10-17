@@ -49,8 +49,8 @@ public class TestController: Controller
 {
     public TestController(NamedTypeResolver namedTypeResolver)
     {
-        var neededService1 = namedTypeResolver.GetNamedService<MyNeededService>("neddedService1");
-        var neededService2 = namedTypeResolver.GetNamedService<MyNeededService>("neddedService2");
+        var neededService1 = namedTypeResolver.GetNamedService<MyNeededService>("service1");
+        var neededService2 = namedTypeResolver.GetNamedService<MyNeededService>("service2");
     }
 
 }
