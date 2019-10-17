@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NamedServices.Microsoft.Extensions.DependencyInjection", "NamedServices.Microsoft.Extensions.DependencyInjection\NamedServices.Microsoft.Extensions.DependencyInjection.csproj", "{6C24E138-D208-45C6-92D8-12D4CDACD4E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NamedServices.Microsoft.Extensions.DependencyInjection", "NamedServices.Microsoft.Extensions.DependencyInjection\NamedServices.Microsoft.Extensions.DependencyInjection.csproj", "{6C24E138-D208-45C6-92D8-12D4CDACD4E2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{BAF5594C-7FB6-4BA2-8829-B2D2C323C189}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED3FE009-11FF-483A-88EE-D8D30395416D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteDBExample", "Examples\LiteDBExample\LiteDBExample.csproj", "{AFB2D573-34CB-4FF8-8788-874D67F6871A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,12 +20,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BAF5594C-7FB6-4BA2-8829-B2D2C323C189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAF5594C-7FB6-4BA2-8829-B2D2C323C189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C24E138-D208-45C6-92D8-12D4CDACD4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C24E138-D208-45C6-92D8-12D4CDACD4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C24E138-D208-45C6-92D8-12D4CDACD4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C24E138-D208-45C6-92D8-12D4CDACD4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF5594C-7FB6-4BA2-8829-B2D2C323C189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF5594C-7FB6-4BA2-8829-B2D2C323C189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB2D573-34CB-4FF8-8788-874D67F6871A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB2D573-34CB-4FF8-8788-874D67F6871A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB2D573-34CB-4FF8-8788-874D67F6871A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB2D573-34CB-4FF8-8788-874D67F6871A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

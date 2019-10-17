@@ -13,9 +13,17 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
         }
 
 
-        public T GetNamedService<T>(string name) where T : class {
+        public T GetNamedService<T>(string key) where T : class {
 
-            var namedServiceType = NamedService.GenerateNamedServiceType<T>(name);
+            var namedServiceType = NamedService.GenerateNamedServiceType<T>(key);
+            var namedService = ServiceProvider.GetRequiredService(namedServiceType) as NamedService<T>;
+            return namedService?.Service;
+
+        }
+
+        public T GetNamedService<T>(Enum key) where T : class {
+
+            var namedServiceType = NamedService.GenerateNamedServiceType<T>(key);
             var namedService = ServiceProvider.GetRequiredService(namedServiceType) as NamedService<T>;
             return namedService?.Service;
 
