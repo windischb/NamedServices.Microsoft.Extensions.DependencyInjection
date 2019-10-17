@@ -2,7 +2,7 @@
 
 Allowes you to use Named Services with Microsoft Dependency Injection.
 
-To add a Named Service to DI one of the following ExtensionMethods an IServiceCollection can be used:
+## Add Named Service to DI
 
 ```csharp
 AddNamed(this IServiceCollection serviceCollection, Type type, string name, ServiceLifetime serviceLifetime);
@@ -35,10 +35,12 @@ AddNamedTransient<T>(this IServiceCollection serviceCollection, string name);
 AddNamedTransient<T>(this IServiceCollection serviceCollection, string name, Func<IServiceProvider, T> implementationFactory);
 
 ```
+  
 
+
+## Resolve Named Service from DI
   
-  
-To Resolve your injected Named Service you can use  `NamedServiceRèsolver`  
+To Resolve your injected Named Service you can use  `NamedServiceResolver`  
 `NamedServiceResolver` is injected automatically for you, so you use in in Constructor Injection.  
 
 ```csharp
