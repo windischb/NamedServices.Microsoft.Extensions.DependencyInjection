@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>NamedServices</AssemblyName>
+    <AssemblyName>NamedServices.Microsoft.Extensions.DependencyInjection</AssemblyName>
     <Authors>Bernhard Windisch</Authors>
     <Company>-</Company>
-    <Description>Microsoft.Extensions.DependencyInjection</Description>
+    <Description>Named Services for Microsoft.Extensions.DependencyInjection</Description>
     <PackageTags>Dependency;Injection;DI</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/windischb/NamedServices.Microsoft.Extensions.DependencyInjection</PackageProjectUrl>
     <RepositoryUrl>https://github.com/windischb/NamedServices.Microsoft.Extensions.DependencyInjection</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageId>NamedServices.Microsoft.Extensions.DependencyInjection</PackageId>
+    <Product>NamedServices.Microsoft.Extensions.DependencyInjection</Product>
   </PropertyGroup>
 
   <ItemGroup>
