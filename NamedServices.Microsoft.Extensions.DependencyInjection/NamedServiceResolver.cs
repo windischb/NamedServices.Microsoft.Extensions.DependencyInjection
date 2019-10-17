@@ -2,12 +2,14 @@
 using Microsoft.Extensions.DependencyInjection;
 
 namespace NamedServices.Microsoft.Extensions.DependencyInjection {
-    public class NamedTypeResolver {
+    public class NamedServiceResolver {
 
         private IServiceProvider ServiceProvider { get; }
 
-        public NamedTypeResolver(IServiceProvider serviceProvider) {
+        public NamedServiceResolver(IServiceProvider serviceProvider) {
+
             ServiceProvider = serviceProvider;
+
         }
 
 
@@ -16,6 +18,7 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
             var namedServiceType = NamedService.GenerateNamedServiceType<T>(name);
             var namedService = ServiceProvider.GetRequiredService(namedServiceType) as NamedService<T>;
             return namedService?.Service;
+
         }
     }
 }

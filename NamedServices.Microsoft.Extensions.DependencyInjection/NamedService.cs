@@ -5,18 +5,22 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
     public class NamedService {
 
         public static Type GenerateNamedServiceType<T>(string name) {
+
             var namedType = NamedTypeBuilder.GetOrCreateNamedType(name);
             return typeof(NamedService<,>).MakeGenericType(typeof(T), namedType);
+
         }
 
         public static Type GenerateNamedServiceType(string name, Type type) {
+
             var namedType = NamedTypeBuilder.GetOrCreateNamedType(name);
             return typeof(NamedService<,>).MakeGenericType(type, namedType);
+
         }
 
     }
 
-    public class NamedService<T>: NamedService, IDisposable where T : class {
+    public class NamedService<T> : NamedService, IDisposable where T : class {
 
         public T Service { get; private set; }
 
@@ -48,12 +52,11 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
 
     }
 
-    public class NamedService<TService, TNamed>: NamedService<TService> where TService: class where TNamed : struct {
-        
+    public class NamedService<TService, TNamed> : NamedService<TService> where TService : class where TNamed : struct {
+
         public string Name => typeof(TNamed).Name;
 
-        public NamedService(TService service) : base(service)
-        {
-        }
+        public NamedService(TService service) : base(service) { }
+
     }
 }

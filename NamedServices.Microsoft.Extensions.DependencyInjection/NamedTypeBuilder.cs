@@ -16,7 +16,9 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
         private static readonly ConcurrentDictionary<string, Type> ExistingNamedTypes = new ConcurrentDictionary<string, Type>();
 
         public static Type GetOrCreateNamedType(string name) {
+
             return ExistingNamedTypes.GetOrAdd(name, CreateNamedType);
+
         }
 
         private static Type CreateNamedType(string name) {
@@ -31,6 +33,5 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
             return objectTypeInfo.AsType();
         }
 
-        
     }
 }
