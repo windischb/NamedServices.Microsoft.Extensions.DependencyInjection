@@ -19,6 +19,8 @@ You can find the complete List of ExtensionMethods at the bottom of the README.
 To Resolve your Named Service you can use `NamedServiceResolver`  
 `NamedServiceResolver` is injected automatically to use it for Constructor Injection.  
 
+* GetNamedService
+* GetRequiredNamedService
 
 ## Example
 
@@ -66,8 +68,8 @@ public class TestController: Controller
     private LiteRepository ClientsRepo { get; }
 
     public TestController(NamedServiceResolver namedServiceResolver) {
-        UsersRepo = namedServiceResolver.GetNamedService<LiteRepository>("users");
-        ClientsRepo = namedServiceResolver.GetNamedService<LiteRepository>(LiteDbRepoNames.Clients);
+        UsersRepo = namedServiceResolver.GetRequiredNamedService<LiteRepository>("users");
+        ClientsRepo = namedServiceResolver.GetRequiredNamedService<LiteRepository>(LiteDbRepoNames.Clients);
     }
 
     ...
@@ -79,49 +81,50 @@ public class TestController: Controller
 ### ExtensionMethods
 
 ```csharp
-AddNamed(this IServiceCollection serviceCollection, Type type, string key, ServiceLifetime serviceLifetime);
-AddNamed(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
-AddNamed<T>(this IServiceCollection serviceCollection, string key, ServiceLifetime serviceLifetime);
-AddNamed<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime);
-AddNamed(this IServiceCollection serviceCollection, Type type, Enum key, ServiceLifetime serviceLifetime);
-AddNamed(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
-AddNamed<T>(this IServiceCollection serviceCollection, Enum key, ServiceLifetime serviceLifetime);
-AddNamed<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime);
-
-
 /// Singleton
-
-AddNamedSingleton(this IServiceCollection serviceCollection, string key, Type type);
-AddNamedSingleton(this IServiceCollection serviceCollection, string key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedSingleton<T>(this IServiceCollection serviceCollection, string key);
+AddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory);
 AddNamedSingleton<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory);
-AddNamedSingleton(this IServiceCollection serviceCollection, Enum key, Type type);
-AddNamedSingleton(this IServiceCollection serviceCollection, Enum key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedSingleton<T>(this IServiceCollection serviceCollection, Enum key);
+AddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key);
+AddNamedSingleton<T>(this IServiceCollection serviceCollection, string key);
+
+AddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory);
 AddNamedSingleton<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory);
+AddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key);
+AddNamedSingleton<T>(this IServiceCollection serviceCollection, Enum key);
 
 
 /// Scoped
-
-AddNamedScoped(this IServiceCollection serviceCollection, string key, Type type);
-AddNamedScoped(this IServiceCollection serviceCollection, string key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedScoped<T>(this IServiceCollection serviceCollection, string key);
+AddNamedScoped(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory);
 AddNamedScoped<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory);
-AddNamedScoped(this IServiceCollection serviceCollection, Enum key, Type type);
-AddNamedScoped(this IServiceCollection serviceCollection, Enum key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedScoped<T>(this IServiceCollection serviceCollection, Enum key);
+AddNamedScoped(this IServiceCollection serviceCollection, Type type, string key);
+AddNamedScoped<T>(this IServiceCollection serviceCollection, string key);
+
+AddNamedScoped(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory);
 AddNamedScoped<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory);
+AddNamedScoped(this IServiceCollection serviceCollection, Type type, Enum key);
+AddNamedScoped<T>(this IServiceCollection serviceCollection, Enum key);
 
 
 /// Transient
-
-AddNamedTransient(this IServiceCollection serviceCollection, string key, Type type);
-AddNamedTransient(this IServiceCollection serviceCollection, string key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedTransient<T>(this IServiceCollection serviceCollection, string key);
+AddNamedTransient(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory);
 AddNamedTransient<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory);
-AddNamedTransient(this IServiceCollection serviceCollection, Enum key, Type type);
-AddNamedTransient(this IServiceCollection serviceCollection, Enum key, Type type, Func<IServiceProvider, object> implementationFactory);
-AddNamedTransient<T>(this IServiceCollection serviceCollection, Enum key);
-AddNamedTransient<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory);
+AddNamedTransient(this IServiceCollection serviceCollection, Type type, string key);
+AddNamedTransient<T>(this IServiceCollection serviceCollection, string key);
 
+AddNamedTransient(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory);
+AddNamedTransient<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory);
+AddNamedTransient(this IServiceCollection serviceCollection, Type type, Enum key);
+AddNamedTransient<T>(this IServiceCollection serviceCollection, Enum key);
+
+
+///AddNamed
+AddNamed(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime);
+AddNamed(this IServiceCollection serviceCollection, Type type, string key, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, string key, ServiceLifetime serviceLifetime);
+
+AddNamed(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, T> implementationFactory, ServiceLifetime serviceLifetime);
+AddNamed(this IServiceCollection serviceCollection, Type type, Enum key, ServiceLifetime serviceLifetime);
+AddNamed<T>(this IServiceCollection serviceCollection, Enum key, ServiceLifetime serviceLifetime);
 ```

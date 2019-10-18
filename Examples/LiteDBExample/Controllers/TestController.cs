@@ -15,7 +15,7 @@ namespace LiteDBExample.Controllers {
         private LiteRepository ClientsRepo { get; }
 
         public TestController(NamedServiceResolver namedServiceResolver) {
-            UsersRepo = namedServiceResolver.GetNamedService<LiteRepository>("users");
+            UsersRepo = namedServiceResolver.GetNamedService<LiteRepository>("users2");
             ClientsRepo = namedServiceResolver.GetNamedService<LiteRepository>(LiteDbRepoNames.Clients);
         }
 
