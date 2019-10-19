@@ -2,7 +2,7 @@
 
 namespace NamedServices.Microsoft.Extensions.DependencyInjection
 {
-    public static class NamedServiceHelper {
+    internal static class NamedServiceHelper {
 
         public static Type GenerateNamedServiceType<T>(string key) {
 

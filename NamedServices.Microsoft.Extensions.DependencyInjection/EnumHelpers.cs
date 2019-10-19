@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
 
-namespace Reflectensions.Helper
+namespace NamedServices.Microsoft.Extensions.DependencyInjection
 {
-    public static class EnumHelpers
+    internal static class EnumHelpers
     {
 
         public static string GetFullName(this Enum enumValue) {
