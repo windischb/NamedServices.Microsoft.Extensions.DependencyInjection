@@ -5,7 +5,7 @@ Supports `string` or `enum` as key.
 
 ## Add Named Service to DI
 
-There are a few ExtensionMethods for IServiceCollection, to add Named Services:
+There are a few ExtensionMethods for `IServiceCollection`, to add Named Services:
 
 * AddNamed
 * AddNamedSingleton
@@ -16,8 +16,7 @@ You can find the complete List of ExtensionMethods at the bottom of the README.
 
 ## Resolve Named Service from DI
   
-To Resolve your Named Service you can use `NamedServiceResolver`  
-`NamedServiceResolver` is injected automatically to use it for Constructor Injection.  
+There are a few ExtensionMethods for `IServiceProvider`, to resolve Named Services:
 
 * GetNamedService
 * GetRequiredNamedService
@@ -36,7 +35,6 @@ public enum LiteDbRepoNames {
 
 Startup.cs
 ```csharp
-
  public void ConfigureServices(IServiceCollection services) {
 
     ...
@@ -56,7 +54,6 @@ Startup.cs
     ...
 
 }
-
 ```
 
 TestController.cs
@@ -67,14 +64,13 @@ public class TestController: Controller
     private LiteRepository UsersRepo { get; }
     private LiteRepository ClientsRepo { get; }
 
-    public TestController(NamedServiceResolver namedServiceResolver) {
-        UsersRepo = namedServiceResolver.GetRequiredNamedService<LiteRepository>("users");
-        ClientsRepo = namedServiceResolver.GetRequiredNamedService<LiteRepository>(LiteDbRepoNames.Clients);
+    public TestController(IServiceProvider serviceProvider) {
+        UsersRepo = serviceProvider.GetRequiredNamedService<LiteRepository>("users");
+        ClientsRepo = serviceProvider.GetRequiredNamedService<LiteRepository>(LiteDbRepoNames.Clients);
     }
 
     ...
 }
-
 ```
 
 
