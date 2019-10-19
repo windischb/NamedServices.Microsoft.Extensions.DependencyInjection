@@ -8,6 +8,7 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
 
         public TService Service { get; private set; }
 
+        object INamedService.Service => Service;
 
         public NamedService(TService service) {
             Service = service;
@@ -35,6 +36,7 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
             }
 
         }
+
 
         
     }

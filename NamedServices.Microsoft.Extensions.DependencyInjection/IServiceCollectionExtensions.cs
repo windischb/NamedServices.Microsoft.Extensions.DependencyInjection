@@ -124,8 +124,6 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
 
         public static IServiceCollection AddNamed(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime) {
 
-            serviceCollection.TryAddSingleton<NamedServiceResolver>();
-
             var namedService = NamedServiceHelper.GenerateNamedServiceType(key, type);
             serviceCollection.Add(implementationFactory == null
                 ? new ServiceDescriptor(namedService, namedService, serviceLifetime)
@@ -158,8 +156,6 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
 
 
         public static IServiceCollection AddNamed(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime) {
-
-            serviceCollection.TryAddSingleton<NamedServiceResolver>();
 
             var namedService = NamedServiceHelper.GenerateNamedServiceType(key, type);
             serviceCollection.Add(implementationFactory == null
