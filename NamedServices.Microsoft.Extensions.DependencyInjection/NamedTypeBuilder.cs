@@ -16,20 +16,26 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
 
         private static readonly ConcurrentDictionary<string, Type> ExistingNamedTypes = new ConcurrentDictionary<string, Type>();
 
+        private static readonly object dictLock = new object();
+
         public static Type GetOrCreateNamedType(string key) {
 
-            return ExistingNamedTypes.GetOrAdd($"{RootNamespace}.{key}", CreateNamedType);
-
+            lock (dictLock) {
+                return ExistingNamedTypes.GetOrAdd($"{RootNamespace}.{key}", CreateNamedType);
+            }
+            
         }
 
         public static Type GetOrCreateNamedType(Enum key) {
 
-            var name = key.GetFullName();
-            if (name.Contains(",")) {
-                throw new ArgumentException("Only single Enums are supported!", nameof(key));
-            }
-            return ExistingNamedTypes.GetOrAdd($"{RootEnumNamespace}.{name}", CreateNamedType);
+            lock (dictLock) {
+                var name = key.GetFullName();
+                if (name.Contains(",")) {
+                    throw new ArgumentException("Only single Enums are supported!", nameof(key));
+                }
 
+                return ExistingNamedTypes.GetOrAdd($"{RootEnumNamespace}.{name}", CreateNamedType);
+            }
         }
 
         private static Type CreateNamedType(string key) {
@@ -39,6 +45,7 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection
                 TypeAttributes.Sealed,
                 typeof(ValueType));
 
+            
             var objectTypeInfo = tb.CreateTypeInfo();
 
             return objectTypeInfo.AsType();
