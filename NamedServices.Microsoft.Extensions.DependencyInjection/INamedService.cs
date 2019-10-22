@@ -9,4 +9,8 @@ namespace NamedServices.Microsoft.Extensions.DependencyInjection {
         new T Service { get; }
 
     }
+
+    internal interface INamedService<out T, TNamed> : INamedService<T> where T : class {
+        
+    }
 }
