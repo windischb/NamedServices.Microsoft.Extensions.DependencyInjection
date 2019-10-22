@@ -2,7 +2,7 @@
 
 namespace NamedServices.Microsoft.Extensions.DependencyInjection
 {
-    public class NamedService<TService, TNamed> : INamedService<TService> where TService : class where TNamed : struct {
+    public class NamedService<TService, TNamed> : INamedService<TService, TNamed> where TService : class where TNamed : struct {
 
         public string Name { get; }
 
