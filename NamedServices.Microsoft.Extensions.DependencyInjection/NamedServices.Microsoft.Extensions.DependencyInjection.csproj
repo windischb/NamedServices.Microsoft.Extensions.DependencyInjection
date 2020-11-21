@@ -13,7 +13,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageId>NamedServices.Microsoft.Extensions.DependencyInjection</PackageId>
     <Product>NamedServices.Microsoft.Extensions.DependencyInjection</Product>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

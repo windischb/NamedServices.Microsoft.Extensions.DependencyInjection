@@ -12,6 +12,11 @@ There are a few ExtensionMethods for `IServiceCollection`, to add Named Services
 * AddNamedScoped
 * AddNamedTransient
 
+* TryAddNamed
+* TryAddNamedSingleton
+* TryAddNamedScoped
+* TryAddNamedTransient
+
 You can find the complete List of ExtensionMethods at the bottom of the README.
 
 ## Resolve Named Service from DI
@@ -98,6 +103,28 @@ AddNamedSingleton<TService>(this IServiceCollection serviceCollection, Enum key,
 AddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
 AddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key,Func<IServiceProvider, TImplementation> implementationFactory);
 
+/// Try Singleton
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider,object> implementationFactory);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key, Type implementationType);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, string key, objectimplementationInstance);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, string key);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider,TService> implementationFactory);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, string key, TService implementationInstance);
+TryAddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, string key);
+TryAddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, string key,Func<IServiceProvider, TImplementation> implementationFactory);
+
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider,object> implementationFactory);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key, Type implementationType);
+TryAddNamedSingleton(this IServiceCollection serviceCollection, Type type, Enum key, objectimplementationInstance);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider,TService> implementationFactory);
+TryAddNamedSingleton<TService>(this IServiceCollection serviceCollection, Enum key, TService implementationInstance);
+TryAddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedSingleton<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key,Func<IServiceProvider, TImplementation> implementationFactory);
+
+
 
 /// Scoped
 AddNamedScoped(this IServiceCollection serviceCollection, Type type, string key);
@@ -115,6 +142,24 @@ AddNamedScoped<TService>(this IServiceCollection serviceCollection, Enum key);
 AddNamedScoped<TService>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TService> implementationFactory);
 AddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
 AddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory);
+
+/// Try Scoped
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, string key);
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory);
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, string key, Type implementationType);
+TryAddNamedScoped<TService>(this IServiceCollection serviceCollection, string key);
+TryAddNamedScoped<TService>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TService> implementationFactory);
+TryAddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, string key);
+TryAddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TImplementation> implementationFactory);
+
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, Enum key);
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory);
+TryAddNamedScoped(this IServiceCollection serviceCollection, Type type, Enum key, Type implementationType);
+TryAddNamedScoped<TService>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedScoped<TService>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TService> implementationFactory);
+TryAddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedScoped<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory);
+
 
 
 /// Transient
@@ -134,8 +179,26 @@ AddNamedTransient<TService>(this IServiceCollection serviceCollection, Enum key,
 AddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
 AddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory);
 
+/// Try Transient
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, string key);
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory);
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, string key, Type implementationType);
+TryAddNamedTransient<TService>(this IServiceCollection serviceCollection, string key);
+TryAddNamedTransient<TService>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TService> implementationFactory);
+TryAddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, string key);
+TryAddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TImplementation> implementationFactory);
 
-///AddNamed
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, Enum key);
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory);
+TryAddNamedTransient(this IServiceCollection serviceCollection, Type type, Enum key, Type implementationType);
+TryAddNamedTransient<TService>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedTransient<TService>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TService> implementationFactory);
+TryAddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key);
+TryAddNamedTransient<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory);
+
+
+
+/// AddNamed
 AddNamed(this IServiceCollection serviceCollection, Type type, string key, ServiceLifetime serviceLifetime);
 AddNamed(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
 AddNamed(this IServiceCollection serviceCollection, Type type, string key, Type implementationType, ServiceLifetime serviceLifetime);
@@ -155,4 +218,25 @@ AddNamed<TService>(this IServiceCollection serviceCollection, Enum key, Func<ISe
 AddNamed<TService>(this IServiceCollection serviceCollection, Enum key, TService implementationInstance);
 AddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, ServiceLifetime serviceLifetime);
 AddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory, ServiceLifetime serviceLifetime);
+
+/// Try AddNamed
+TryAddNamed(this IServiceCollection serviceCollection, Type type, string key, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, string key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, string key, Type implementationType, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, string key, object implementationInstance);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, string key, ServiceLifetime serviceLifetime);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TService> implementationFactory, ServiceLifetime serviceLifetime);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, string key, TService implementationInstance);
+TryAddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, string key, ServiceLifetime serviceLifetime);
+TryAddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, string key, Func<IServiceProvider, TImplementation> implementationFactory, ServiceLifetime serviceLifetime);
+
+TryAddNamed(this IServiceCollection serviceCollection, Type type, Enum key, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, Enum key, Func<IServiceProvider, object> implementationFactory, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, Enum key, Type implementationType, ServiceLifetime serviceLifetime);
+TryAddNamed(this IServiceCollection serviceCollection, Type type, Enum key, object implementationInstance);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, Enum key, ServiceLifetime serviceLifetime);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TService> implementationFactory, ServiceLifetime serviceLifetime);
+TryAddNamed<TService>(this IServiceCollection serviceCollection, Enum key, TService implementationInstance);
+TryAddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, ServiceLifetime serviceLifetime);
+TryAddNamed<TService, TImplementation>(this IServiceCollection serviceCollection, Enum key, Func<IServiceProvider, TImplementation> implementationFactory, ServiceLifetime serviceLifetime);
 ```
